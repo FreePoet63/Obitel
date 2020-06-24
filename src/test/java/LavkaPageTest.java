@@ -49,7 +49,7 @@ public class LavkaPageTest {
         Assert.assertEquals("2", number1);
         LavkaPage Mon = lavkaPage.fieldWindow();
         String SumMoney = Mon.money();
-        Assert.assertEquals("1 800,00 руб.", SumMoney);
+        Assert.assertEquals("1 800 руб.", SumMoney);
         lavkaPage.fieldNumber();
         lavkaPage.fielfSetNumber("1");
         lavkaPage.buttonCustomer();
@@ -62,7 +62,7 @@ public class LavkaPageTest {
         Assert.assertEquals("3", number2);
         lavkaPage.fieldWindow();
         String Monney = Mon.money();
-        Assert.assertEquals("2 700,00 руб.", Monney);
+        Assert.assertEquals("2 700 руб.", Monney);
         lavkaPage.fieldDelete();
         try {
             Thread.sleep(4000);
@@ -85,17 +85,17 @@ public class LavkaPageTest {
     public void formatmenu() {
         lavkaPage.fieldUtvar();
         lavkaPage.fieldChetki();
-        lavkaPage.formatOption("900,00");
+        lavkaPage.formatOption("900");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertSame("900,00","900,00");
+        Assert.assertSame("900","900");
         Assert.assertTrue(true);
-        lavkaPage.formatOption("550,00");
-        Assert.assertEquals("550,00", "550,00");
-        Assert.assertTrue("550,00", true);
+        lavkaPage.formatOption("550");
+        Assert.assertEquals("550", "550");
+        Assert.assertTrue("550", true);
     }
     @Test
     public void menuFieldItems() {
@@ -105,7 +105,7 @@ public class LavkaPageTest {
         System.out.println(ellement.size());
         for (WebElement element: ellement) {
             System.out.println(ellement.get(5).getText());
-            Assert.assertTrue(Boolean.parseBoolean(String.valueOf(ellement.get(5).getText().contains("126,00 руб."))));
+            Assert.assertTrue(Boolean.parseBoolean(String.valueOf(ellement.get(5).getText().contains("126 руб."))));
         }
 
     }
