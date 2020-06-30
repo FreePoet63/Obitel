@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -49,7 +48,7 @@ public class LavkaPageTest {
         Assert.assertEquals("2", number1);
         LavkaPage Mon = lavkaPage.fieldWindow();
         String SumMoney = Mon.money();
-        Assert.assertEquals("1 800 руб.", SumMoney);
+        Assert.assertEquals("1 800,00 руб.", SumMoney);
         lavkaPage.fieldNumber();
         lavkaPage.fielfSetNumber("1");
         lavkaPage.buttonCustomer();
@@ -62,7 +61,7 @@ public class LavkaPageTest {
         Assert.assertEquals("3", number2);
         lavkaPage.fieldWindow();
         String Monney = Mon.money();
-        Assert.assertEquals("2 700 руб.", Monney);
+        Assert.assertEquals("2 700,00 руб.", Monney);
         lavkaPage.fieldDelete();
         try {
             Thread.sleep(4000);
