@@ -1,15 +1,7 @@
-import com.oracle.xmlns.internal.webservices.jaxws_databinding.JavaParam;
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-import java.util.WeakHashMap;
 import java.util.concurrent.TimeUnit;
 
 
@@ -32,14 +24,14 @@ public class MainClass {
         try {
             Thread.sleep(20000);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+             e.printStackTrace();
         }
         html5Page.videoFrame();
         html5Page.videoPlayer();
         try {
-            Thread.sleep(25000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+           Thread.sleep(25000);
+       } catch (InterruptedException e) {
+           e.printStackTrace();
         }
         html5Page.videoPlayer();
         driver.navigate().back();
@@ -51,11 +43,6 @@ public class MainClass {
         }
         html5Page.openAction();
         html5Page.volumePlay();
-        try {
-            Thread.sleep(7000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         html5Page.openAudio();
         mainPage.testObitel();
         driver.navigate().to("https://obitel-minsk.ru/");

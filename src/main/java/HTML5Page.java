@@ -38,7 +38,10 @@ public class HTML5Page {
             actions9.moveToElement(volume).build().perform();
         }
         public void volumePlay() {
-            driver.findElement(setPlayAudio).click();
+            Actions actions777 = new Actions(driver);
+            WebElement voise = driver.findElement(setPlayAudio);
+            actions777.dragAndDropBy(voise, 1292, 2272);
+            voise.click();
         }
 
 

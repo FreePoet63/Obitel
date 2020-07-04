@@ -24,8 +24,8 @@ public class MainPage {
         driver.findElement(By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[3]/div[1]/a/img")).click();
         WebElement frame = driver.findElement(By.xpath("//div[@class=\"playbuzz\"]/iframe"));
         driver.switchTo().frame(frame);
-        driver.findElement(By.xpath("//p[contains(text(), \"Крамской\")]")).click();
-        System.out.println(driver.findElement(By.xpath("//p[contains(text(), \"Крамской\")]")).getText());
+        driver.findElement(By.xpath("//p[contains(text(), \"Оптина пустынь\")]")).click();
+        System.out.println(driver.findElement(By.xpath("//p[contains(text(), \"Оптина пустынь\")]")).getText());
         driver.switchTo().defaultContent();
     }
     public void obitelSearch() {
