@@ -6,14 +6,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 
+import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class HTML5PageTest {
 
     private WebDriver driver;
     private HTML5Page html5Page;
+    private static String[] links= null;
+    private static int linksCount = 0;
 
     @Before
     public void setUp() {
@@ -25,6 +28,22 @@ public class HTML5PageTest {
         String mainTab = driver.getWindowHandle();
         html5Page = new HTML5Page(driver);
     }
+    @Test
+    public void links() throws IOException {
+        html5Page.openVideo();
+        driver.findElement(By.xpath("/html/body/div[3]/div[4]/div/a/img")).click();
+        List<WebElement> linksize = driver.findElements(By.tagName("a"));
+        linksCount = linksize.size();
+        System.out.println("Total no of links Available: "+ linksCount);
+        links = new String[linksCount];
+        System.out.println("List of links Available: ");
+        for (int i=0; i<linksCount; i++) {
+            links[i]=linksize.get(i).getAttribute("href");
+            System.out.println(linksize.get(i).getAttribute("href"));
+        }
+    }
+
+
 
     @Test
     public void videoPlay() {
