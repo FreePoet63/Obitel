@@ -15,7 +15,7 @@ public class HTML5Page {
         private By setAudio = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[1]");
         private By setAction = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[5]/div[1]/a");
         private By setPlayAudio = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[5]/div[2]/div/div");
-
+        private By setLinks = By.xpath("/html/body/div[3]/div[4]/div/a/img");
 
 
         public void openVideo() {
@@ -42,6 +42,9 @@ public class HTML5Page {
             WebElement voise = driver.findElement(setPlayAudio);
             actions777.dragAndDropBy(voise, 1292, 2272);
             voise.click();
+        }
+        public void fieldLinks () {
+            driver.findElement(setLinks).click();
         }
 
 

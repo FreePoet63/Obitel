@@ -31,15 +31,16 @@ public class HTML5PageTest {
     @Test
     public void links() throws IOException {
         html5Page.openVideo();
-        driver.findElement(By.xpath("/html/body/div[3]/div[4]/div/a/img")).click();
+        html5Page.fieldLinks();
         List<WebElement> linksize = driver.findElements(By.tagName("a"));
         linksCount = linksize.size();
         System.out.println("Total no of links Available: "+ linksCount);
         links = new String[linksCount];
         System.out.println("List of links Available: ");
         for (int i=0; i<linksCount; i++) {
-            links[i]=linksize.get(i).getAttribute("href");
+            links[i] = linksize.get(i).getAttribute("href");
             System.out.println(linksize.get(i).getAttribute("href"));
+            Assert.assertTrue(linksize.get(i).getAttribute("href"), true);
         }
     }
 
