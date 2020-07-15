@@ -5,6 +5,7 @@ public class LavkaPage {
 
     private static WebDriver driver;
 
+
     public LavkaPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -18,8 +19,8 @@ public class LavkaPage {
     private By setAllert = By.xpath("//button[@class=\"action-primary action-accept\"]");
     private By setCustometfirst = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a/span[2]/span[1]");
     private By setFieldmoney = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[2]/div/span/span");
-    private By setnumber = By.xpath("//*[@id=\"cart-item-8729-qty\"]");
-
+    private By setCandle = By.xpath("//a[contains(text(), 'Церковные свечи')]");
+    private By setObjectNew = By.xpath("/html/body/div[2]/div/div/div[2]/nav/ul/li[6]/ul/li[10]/a/span");
 
 
     public void fieldUtvar() {
@@ -71,18 +72,17 @@ public class LavkaPage {
         return driver.findElement(setFieldmoney).getText();
     }
 
-    public void summaAuto() {
-        driver.findElement(setnumber).clear();
-    }
-
-    public void autoSumma(String summa) {
-        driver.findElement(setnumber).sendKeys(summa);
+    public void fieldNewObject() {
+        driver.findElement(setObjectNew).click();
     }
 
 
     public static void formatOption(String name) {
         System.out.println(driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).getText());
         driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).click();
-
     }
+    public void candleField() {
+        driver.findElement(setCandle).click();
+    }
+
 }

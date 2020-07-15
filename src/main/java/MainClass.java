@@ -44,7 +44,6 @@ public class MainClass {
         html5Page.openAction();
         html5Page.volumePlay();
         html5Page.openAudio();
-        mainPage.testObitel();
         driver.navigate().to("https://obitel-minsk.ru/");
         mainPage.obitelSearch();
         mainPage.typeword("Батюшка");
@@ -93,8 +92,13 @@ public class MainClass {
         registerPage.passwordSet("77777Gospod");
         registerPage.doublePasswordSet("77777Gospod");
         driver.navigate().back();
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.fieldUtvar();
-        lavkaPage.fieldChetki();
+        lavkaPage.fieldNewObject();
         lavkaPage.fieldTovar();
 
         try {

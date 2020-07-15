@@ -14,6 +14,7 @@ public class LavkaPageTest {
 
     private WebDriver driver;
     private LavkaPage lavkaPage;
+    private int i;
 
     @Before
     public void setUp() {
@@ -25,6 +26,25 @@ public class LavkaPageTest {
         String mainTab2 = driver.getWindowHandle();
         lavkaPage = new LavkaPage(driver);
     }
+    @Test
+    public void itemsFlame() {
+        lavkaPage.fieldUtvar();
+        lavkaPage.candleField();
+        List<WebElement> priceFlame = driver.findElements(By.xpath("//ol[@class = \"products list items product-items\"]/li"));
+        System.out.println(priceFlame.size());
+        for (int i=0; i<priceFlame.size(); i++) {
+            System.out.println(priceFlame.get(i).getText());
+        }
+        Assert.assertTrue(priceFlame.get(i).getText(), true);
+        List<WebElement> candles = driver.findElements(By.xpath("//span[contains(text(), \"210\")]"));
+        System.out.println(candles.size());
+        for (int i=0; i<candles.size();i++) {
+            System.out.println(candles.get(i).getText());
+        }
+        Assert.assertTrue(candles.get(i).getText(), true);
+
+    }
+
 
     @Test
     public void lavkaShop() {
