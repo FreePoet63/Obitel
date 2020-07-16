@@ -40,7 +40,6 @@ public class HTML5PageTest {
         for (int i=0; i<linksCount; i++) {
             links[i] = linksize.get(i).getAttribute("href");
             System.out.println(linksize.get(i).getAttribute("href"));
-            Assert.assertTrue(linksize.get(i).getAttribute("href"), true);
         }
     }
 
