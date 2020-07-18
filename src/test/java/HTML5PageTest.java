@@ -44,8 +44,6 @@ public class HTML5PageTest {
         }
     }
 
-
-
     @Test
     public void videoPlay() {
         html5Page.openVideo();

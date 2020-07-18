@@ -1,5 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class LavkaPage {
 
@@ -21,14 +23,20 @@ public class LavkaPage {
     private By setFieldmoney = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[2]/div/span/span");
     private By setCandle = By.xpath("//a[contains(text(), 'Церковные свечи')]");
     private By setObjectNew = By.xpath("/html/body/div[2]/div/div/div[2]/nav/ul/li[6]/ul/li[10]/a/span");
+    private By setSlider = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[1]");
+    private By slaiderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[1]");
+    private By setSlay = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[1]");
+    private By stringSlay = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[2]");
+    private By newSlayderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[2]");
 
 
     public void fieldUtvar() {
         driver.findElement(setShop).click();
     }
 
-    public void fieldChetki() {
+    public LavkaPage fieldChetki() {
         driver.findElement(setObject).click();
+        return this;
     }
 
     public LavkaPage fieldTovar() {
@@ -83,6 +91,28 @@ public class LavkaPage {
     }
     public void candleField() {
         driver.findElement(setCandle).click();
+    }
+    public String slaiderNew() {
+        return driver.findElement(setSlider).getText();
+    }
+    public LavkaPage sliderClick() {
+        Actions actionsEle = new Actions(driver);
+        WebElement slider = driver.findElement(slaiderField);
+        actionsEle.dragAndDropBy(slider,74, 0).perform();
+        return this;
+    }
+    public LavkaPage fieldSlay() {
+        driver.findElement(setSlay).click();
+        return this;
+    }
+    public String fieldStringSlay() {
+        return driver.findElement(stringSlay).getText();
+    }
+    public LavkaPage newSlayderClick() {
+        Actions actionsElemm = new Actions(driver);
+        WebElement newSlider = driver.findElement(newSlayderField);
+        actionsElemm.dragAndDropBy(newSlider,-70,0).perform();
+        return this;
     }
 
 }

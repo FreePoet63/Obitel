@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +26,60 @@ public class LavkaPageTest {
         driver.get("https://lavka-obitel.ru/");
         String mainTab2 = driver.getWindowHandle();
         lavkaPage = new LavkaPage(driver);
+    }
+    @Test
+    public void sumElement() {
+        lavkaPage.fieldUtvar();
+        LavkaPage clickSlay=lavkaPage.fieldChetki();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String firstSlay = clickSlay.slaiderNew();
+        Assert.assertEquals("105 руб.", firstSlay);
+        String secondSlay = clickSlay.fieldStringSlay();
+        Assert.assertEquals("1 200,99 руб.", secondSlay);
+        LavkaPage cliderNow = lavkaPage.sliderClick();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String slaiderText = cliderNow.slaiderNew();
+        Assert.assertEquals("505 руб.", slaiderText);
+        LavkaPage clayNow = lavkaPage.newSlayderClick();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        String newSlayderText = clayNow.fieldStringSlay();
+        Assert.assertEquals("821,99 руб.", newSlayderText);
+    }
+    @Test
+    public void arrayListItems() {
+        lavkaPage.fieldUtvar();
+        lavkaPage.candleField();
+        List<WebElement> items24 = driver.findElements(By.xpath("//div[@class=\"product details product-item-details\"]"));
+        System.out.println("Size of the elenents : "+items24.size());
+        ArrayList<String> itemsText = new ArrayList<String>();
+        for (WebElement ele : items24)
+        {
+            try {
+                itemsText.add(ele.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("************************************");
+        System.out.println("Size of the ArrayList "+itemsText.size());
+        int i=1;
+        for (String s : itemsText) {
+            System.out.println(i + ". ArrayList Text : " + s);
+            i++;
+            Assert.assertTrue(i + ". ArrayList Text : " + s, true);
+        }
     }
     @Test
     public void itemsFlame() {

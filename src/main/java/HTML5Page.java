@@ -36,12 +36,17 @@ public class HTML5Page {
             WebElement volume = driver.findElement(setAction);
             Actions actions9 = new Actions(driver);
             actions9.moveToElement(volume).build().perform();
+
         }
         public void volumePlay() {
             Actions actions777 = new Actions(driver);
             WebElement voise = driver.findElement(setPlayAudio);
-            actions777.dragAndDropBy(voise, 1292, 2272);
             voise.click();
+            voise.click();
+
+
+
+
         }
         public void fieldLinks () {
             driver.findElement(setLinks).click();
