@@ -43,9 +43,8 @@ public class HTML5Page {
             WebElement voise = driver.findElement(setPlayAudio);
             voise.click();
             voise.click();
-
         }
-        public void fieldLinks () {
+        public void fieldLinks() {
             driver.findElement(setLinks).click();
         }
 
