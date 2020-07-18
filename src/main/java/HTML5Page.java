@@ -44,9 +44,6 @@ public class HTML5Page {
             voise.click();
             voise.click();
 
-
-
-
         }
         public void fieldLinks () {
             driver.findElement(setLinks).click();
