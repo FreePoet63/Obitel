@@ -16,6 +16,10 @@ public class HTML5Page {
         private By setAction = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[5]/div[1]/a");
         private By setPlayAudio = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[5]/div[2]/div/div");
         private By setLinks = By.xpath("/html/body/div[3]/div[4]/div/a/img");
+        private By setCross = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[3]/div[2]/span");
+        private By setX = By.xpath("/html/body/div/div/div[24]/div[2]/div[1]/span/button");
+        private By setY = By.xpath("/html/body/div/div/div[24]/div[2]/div[1]/span/div/div");
+        private By setWindowVideo = By.xpath("/html/body/div[1]/div/div[24]/div[2]/div[3]/button[7]");
 
 
         public void openVideo() {
@@ -41,11 +45,33 @@ public class HTML5Page {
         public void volumePlay() {
             Actions actions777 = new Actions(driver);
             WebElement voise = driver.findElement(setPlayAudio);
+            actions777.moveToElement(voise).build().perform();
             voise.click();
             voise.click();
         }
         public void fieldLinks() {
             driver.findElement(setLinks).click();
+        }
+        public void audioCross() {
+            Actions actionsAudio = new Actions(driver);
+            WebElement cross = driver.findElement(setCross);
+            actionsAudio.dragAndDropBy(cross,80, 0).perform();
+
+        }
+        public void xVolume() {
+            Actions eleActions = new Actions(driver);
+            WebElement elemm = driver.findElement(setX);
+            eleActions.moveToElement(elemm).build().perform();
+
+        }
+        public void dragSlay() {
+            Actions actyVolume = new Actions(driver);
+            WebElement acVolume = driver.findElement(setY);
+            actyVolume.dragAndDropBy(acVolume,  -15, 0).perform();
+
+        }
+        public void windowVideo() {
+            driver.findElement(setWindowVideo).click();
         }
 
 

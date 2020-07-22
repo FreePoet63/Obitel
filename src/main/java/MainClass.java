@@ -12,14 +12,28 @@ public class MainClass {
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
-        driver.get("https://obitel-minsk.ru/");
-        String mainTab = driver.getWindowHandle();
         MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
         FormPage formPage = PageFactory.initElements(driver, FormPage.class);
         OrderPage orderPage = PageFactory.initElements(driver, OrderPage.class);
         RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
         LavkaPage lavkaPage = PageFactory.initElements(driver, LavkaPage.class);
         HTML5Page html5Page = PageFactory.initElements(driver, HTML5Page.class);
+        driver.get("https://zaycev.net/");
+        mainPage.newMusic();
+        try {
+            Thread.sleep(8000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mainPage.newTrek();
+        mainPage.newSound();
+        try {
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.get("https://obitel-minsk.ru/");
+        String mainTab = driver.getWindowHandle();
         html5Page.openVideo();
         try {
             Thread.sleep(20000);
@@ -29,7 +43,15 @@ public class MainClass {
         html5Page.videoFrame();
         html5Page.videoPlayer();
         try {
-           Thread.sleep(25000);
+            Thread.sleep(6000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        html5Page.xVolume();
+        html5Page.dragSlay();
+        html5Page.windowVideo();
+        try {
+           Thread.sleep(15000);
        } catch (InterruptedException e) {
            e.printStackTrace();
         }
@@ -41,6 +63,7 @@ public class MainClass {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        html5Page.audioCross();
         html5Page.openAction();
         html5Page.volumePlay();
         html5Page.openAudio();

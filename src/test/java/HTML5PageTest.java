@@ -55,11 +55,19 @@ public class HTML5PageTest {
         html5Page.videoFrame();
         html5Page.videoPlayer();
         try {
-            Thread.sleep(25000);
+            Thread.sleep(6000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        html5Page.videoPlayer();
+        html5Page.xVolume();
+        html5Page.dragSlay();
+        html5Page.windowVideo();
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+       html5Page.videoPlayer();
         Assert.assertTrue(true);
     }
     @Test
@@ -70,6 +78,7 @@ public class HTML5PageTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        html5Page.audioCross();
         html5Page.openAction();
         html5Page.volumePlay();
          try {
@@ -81,6 +90,7 @@ public class HTML5PageTest {
          Assert.assertTrue(true);
 
     }
+
     @After
     public void tearDown() {
         driver.quit();

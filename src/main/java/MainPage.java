@@ -83,4 +83,19 @@ public class MainPage {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"mainPageP\"]//ul//li[6]"))).click();
     }
+    public void newMusic() {
+        driver.findElement(By.xpath("//*[@id=\"top_1\"]/div[2]/div[1]/div[1]/div[1]/i")).click();
+    }
+    public void newTrek() {
+        Actions actionsTrek = new Actions(driver);
+        WebElement trek = driver.findElement(By.xpath("//div[@class=\"thumb\"]"));
+        actionsTrek.dragAndDropBy(trek, 250,0).perform();
+
+    }
+    public void newSound() {
+        Actions actionsX = new Actions(driver);
+        WebElement volumeT = driver.findElement(By.xpath("/html/body/div/div[2]/div/div/div[3]/div[3]/div[3]/div[3]"));
+        actionsX.dragAndDropBy(volumeT,-40,0).perform();
+
+    }
 }
