@@ -84,7 +84,8 @@ public class MainPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class=\"mainPageP\"]//ul//li[6]"))).click();
     }
     public void newMusic() {
-        driver.findElement(By.xpath("//*[@id=\"top_1\"]/div[2]/div[1]/div[1]/div[1]/i")).click();
+        WebDriverWait waitt = new WebDriverWait(driver,5);
+        waitt.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html/body/div[6]/div[3]/div[1]/div[2]/div/div[2]/div/div/div[2]/div[1]/div[2]/div[2]/div[10]/div[1]/div[1]/i"))).click();
     }
     public void newTrek() {
         Actions actionsTrek = new Actions(driver);

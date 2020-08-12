@@ -137,6 +137,7 @@ public class MainClass {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        lavkaPage.helpWindow();
         lavkaPage.fieldWindow();
         lavkaPage.fieldDelete();
         try {

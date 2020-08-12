@@ -28,6 +28,8 @@ public class LavkaPage {
     private By setSlay = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[1]");
     private By stringSlay = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[2]");
     private By newSlayderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[2]");
+    private By windowHelp = By.xpath("//*[@id=\"app\"]/div/div/div/header/span/nav/button[2]");
+
 
 
     public void fieldUtvar() {
@@ -114,5 +116,9 @@ public class LavkaPage {
         actionsElemm.dragAndDropBy(newSlider,-70,0).perform();
         return this;
     }
+    public void helpWindow() {
+        driver.findElement(windowHelp).click();
+    }
+
 
 }
