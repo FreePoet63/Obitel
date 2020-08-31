@@ -3,16 +3,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-public class LavkaPage {
+import java.util.List;
+
+public class LavkaPage  {
 
     private static WebDriver driver;
+
 
 
     public LavkaPage(WebDriver driver) {
         this.driver = driver;
     }
     private By setShop = By.xpath("//nav//li//span[normalize-space(.)='Утварь']/..");
-    private By setObject = By.xpath("//*[@id=\"narrow-by-list\"]/div[1]/div[2]/ol/li[9]/a");
+    private By setObject = By.xpath("/html/body/div[2]/main/div[3]/div[2]/div/div[2]/div/div[1]/div[2]/ol/li[9]/a");
     private By setCustomer = By.xpath("//*[@id=\"maincontent\"]/div[4]/div[1]/div[3]/ol/li[4]");
     private By setFieldnumber = By.xpath("//*[@id=\"qty\"]");
     private By setButtoncustom = By.xpath("//*[contains(text(), \"Выбрать\")]");
@@ -29,12 +32,15 @@ public class LavkaPage {
     private By stringSlay = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[2]");
     private By newSlayderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[2]");
     private By windowHelp = By.xpath("//*[@id=\"app\"]/div/div/div/header/span/nav/button[2]");
-
+    private By menuItemsCandles = By.xpath("//div[@class=\"product details product-item-details\"]");
+    private By getItemsProduct = By.xpath("//ol[@class = \"products list items product-items\"]/li");
+    private By getCandleProduct = By.xpath("//span[contains(text(), \"210\")]");
+    private By getStringMenu = By.xpath("//div[@class = \"column main\"]");
 
 
     public void fieldUtvar() {
         driver.findElement(setShop).click();
-    }
+       }
 
     public LavkaPage fieldChetki() {
         driver.findElement(setObject).click();
@@ -118,6 +124,18 @@ public class LavkaPage {
     }
     public void helpWindow() {
         driver.findElement(windowHelp).click();
+    }
+    public List<WebElement> itemsCandlesMenu() {
+       return driver.findElements(menuItemsCandles);
+    }
+    public List<WebElement> itemsProduct() {
+       return driver.findElements(getItemsProduct);
+    }
+    public List<WebElement> candleProduct() {
+       return driver.findElements(getCandleProduct);
+    }
+    public List<WebElement> stringListMenu() {
+       return driver.findElements(getStringMenu);
     }
 
 

@@ -42,6 +42,7 @@ public class HTML5PageTest {
             System.out.println(linksize.get(i).getAttribute("href"));
             Assert.assertTrue(linksize.get(i).getAttribute("href"), true);
         }
+
     }
 
     @Test

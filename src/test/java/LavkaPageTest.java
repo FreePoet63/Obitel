@@ -2,7 +2,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,6 +29,11 @@ public class LavkaPageTest {
     @Test
     public void sumElement() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         LavkaPage clickSlay=lavkaPage.fieldChetki();
         try {
             Thread.sleep(5000);
@@ -60,8 +64,13 @@ public class LavkaPageTest {
     @Test
     public void arrayListItems() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.candleField();
-        List<WebElement> items24 = driver.findElements(By.xpath("//div[@class=\"product details product-item-details\"]"));
+        List<WebElement> items24 = lavkaPage.itemsCandlesMenu();
         System.out.println("Size of the elenents : "+items24.size());
         ArrayList<String> itemsText = new ArrayList<String>();
         for (WebElement ele : items24)
@@ -84,14 +93,19 @@ public class LavkaPageTest {
     @Test
     public void itemsFlame() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.candleField();
-        List<WebElement> priceFlame = driver.findElements(By.xpath("//ol[@class = \"products list items product-items\"]/li"));
+        List<WebElement> priceFlame = lavkaPage.itemsProduct();
         System.out.println(priceFlame.size());
         for (int i=0; i<priceFlame.size(); i++) {
             System.out.println(priceFlame.get(i).getText());
         }
         Assert.assertTrue(priceFlame.get(i).getText(), true);
-        List<WebElement> candles = driver.findElements(By.xpath("//span[contains(text(), \"210\")]"));
+        List<WebElement> candles = lavkaPage.candleProduct();
         System.out.println(candles.size());
         for (int i=0; i<candles.size();i++) {
             System.out.println(candles.get(i).getText());
@@ -104,6 +118,11 @@ public class LavkaPageTest {
     @Test
     public void lavkaShop() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.fieldChetki();
         lavkaPage.fieldTovar();
         try {
@@ -148,8 +167,13 @@ public class LavkaPageTest {
     @Test
     public void fieldMenu() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.fieldChetki();
-        List<WebElement> stringList = driver.findElements(By.xpath("//div[@class = \"column main\"]"));
+        List<WebElement> stringList = lavkaPage.stringListMenu();
         for (WebElement element: stringList) {
             System.out.println((element.getText()));
             Assert.assertTrue(element.getText().contains("четки"));
@@ -158,6 +182,11 @@ public class LavkaPageTest {
     @Test
     public void formatmenu() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.fieldChetki();
         lavkaPage.formatOption("900");
         try {
@@ -174,8 +203,13 @@ public class LavkaPageTest {
     @Test
     public void menuFieldItems() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.fieldChetki();
-        List<WebElement> ellement = driver.findElements(By.xpath("//ol[@class = \"products list items product-items\"]/li"));
+        List<WebElement> ellement = lavkaPage.itemsProduct();
         System.out.println(ellement.size());
         for (WebElement element: ellement) {
             System.out.println(ellement.get(5).getText());
@@ -186,8 +220,13 @@ public class LavkaPageTest {
     @Test
     public void itemsTeam() {
         lavkaPage.fieldUtvar();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         lavkaPage.fieldChetki();
-        List<WebElement> ellements = driver.findElements(By.xpath("//ol[@class = \"products list items product-items\"]/li"));
+        List<WebElement> ellements = lavkaPage.itemsProduct();
         System.out.println(ellements.size());
         for (WebElement ellement : ellements) {
             System.out.println(ellement.getText());
