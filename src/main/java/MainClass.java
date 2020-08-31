@@ -21,7 +21,7 @@ public class MainClass {
         driver.get("https://zaycev.net/");
         mainPage.newMusic();
         try {
-            Thread.sleep(8000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
