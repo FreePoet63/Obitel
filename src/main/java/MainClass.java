@@ -131,13 +131,12 @@ public class MainClass {
         }
         lavkaPage.fieldNumber();
         lavkaPage.fielfSetNumber("2");
-        LavkaPage lav = lavkaPage.buttonCustomer();
+        lavkaPage.buttonCustomer();
         try {
             Thread.sleep(7000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        lavkaPage.helpWindow();
         lavkaPage.fieldWindow();
         lavkaPage.fieldDelete();
         try {
