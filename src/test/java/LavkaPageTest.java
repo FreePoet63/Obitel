@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class LavkaPageTest {
 
     private WebDriver driver;
@@ -87,8 +90,10 @@ public class LavkaPageTest {
         for (String s : itemsText) {
             System.out.println(i + ". ArrayList Text : " + s);
             i++;
-            Assert.assertTrue(i + ". ArrayList Text : " + s, true);
         }
+        assertThat(itemsText, hasItems(containsString("Набор паломника"),
+                containsString("Свечи для домашней молитвы"),
+                containsString("Поминальные свечи для домашней молитвы")));
     }
     @Test
     public void itemsFlame() {
@@ -100,17 +105,27 @@ public class LavkaPageTest {
         }
         lavkaPage.candleField();
         List<WebElement> priceFlame = lavkaPage.itemsProduct();
+        ArrayList<String> priceFlameText = new ArrayList<String>();
         System.out.println(priceFlame.size());
+        for (WebElement elementFlame : priceFlame)
+            priceFlameText.add(elementFlame.getText());
         for (int i=0; i<priceFlame.size(); i++) {
             System.out.println(priceFlame.get(i).getText());
         }
-        Assert.assertTrue(priceFlame.get(i).getText(), true);
+        assertThat(priceFlameText, hasItem("Свечи для домашней молитвы к святому" +
+                " Спиридону Тримифунтскому (40 шт)\n" +
+                "210 руб."));
+
         List<WebElement> candles = lavkaPage.candleProduct();
+        ArrayList<String> candlesText = new ArrayList<String>();
+        for (WebElement eleCandle : candles)
+            candlesText.add(eleCandle.getText());
         System.out.println(candles.size());
         for (int i=0; i<candles.size();i++) {
             System.out.println(candles.get(i).getText());
         }
-        Assert.assertTrue(candles.get(i).getText(), true);
+        assertThat(candlesText, hasItem("210 руб."));
+
 
     }
 
@@ -176,8 +191,9 @@ public class LavkaPageTest {
         List<WebElement> stringList = lavkaPage.stringListMenu();
         for (WebElement element: stringList) {
             System.out.println((element.getText()));
-            Assert.assertTrue(element.getText().contains("четки"));
+            Assert.assertTrue(element.getText().contains("Четки"));
         }
+
     }
     @Test
     public void formatmenu() {
@@ -194,11 +210,9 @@ public class LavkaPageTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Assert.assertSame("900","900");
-        Assert.assertTrue(true);
+        Assert.assertEquals("900","900");
         lavkaPage.formatOption("550");
         Assert.assertEquals("550", "550");
-        Assert.assertTrue("550", true);
     }
     @Test
     public void menuFieldItems() {
@@ -212,8 +226,9 @@ public class LavkaPageTest {
         List<WebElement> ellement = lavkaPage.itemsProduct();
         System.out.println(ellement.size());
         for (WebElement element: ellement) {
+            System.out.println(element.getText());
             System.out.println(ellement.get(5).getText());
-            Assert.assertTrue(Boolean.parseBoolean(String.valueOf(ellement.get(5).getText().contains("126 руб."))));
+            Assert.assertTrue(ellement.get(5).getText().contains("126"));
         }
 
     }
@@ -227,13 +242,17 @@ public class LavkaPageTest {
         }
         lavkaPage.fieldChetki();
         List<WebElement> ellements = lavkaPage.itemsProduct();
+        ArrayList<String> ellementsText =new ArrayList<String>();
+        for (WebElement elllle : ellements)
+            ellementsText.add(elllle.getText());
         System.out.println(ellements.size());
         for (WebElement ellement : ellements) {
             System.out.println(ellement.getText());
-            Assert.assertTrue(ellement.getText(), true);
             if (ellements.size() == 11) System.out.println("EllementTrue");
             else System.out.println("Non");
         }
+        assertThat(ellementsText, hasItems(containsString("Браслет"),
+                containsString("Четки")));
 
     }
 

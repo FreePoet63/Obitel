@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -29,7 +28,7 @@ public class HTML5PageTest {
         html5Page = new HTML5Page(driver);
     }
     @Test
-    public void links() throws IOException {
+    public void links()  {
         html5Page.openVideo();
         html5Page.fieldLinks();
         List<WebElement> linksize = driver.findElements(By.tagName("a"));
@@ -71,6 +70,7 @@ public class HTML5PageTest {
        html5Page.videoPlayer();
         Assert.assertTrue(true);
     }
+
     @Test
     public void audioObitel() {
         html5Page.openAudio();

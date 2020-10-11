@@ -33,7 +33,7 @@ public class MainPage {
     private By setHeadlines2 = By.xpath("//ul[@class=\"news-headlines\"]/li[2]");
     private By setHeadlines3 = By.xpath("//ul[@class=\"news-headlines\"]/li[3]");
     private By setHeadlines6 = By.xpath("//ul[@class=\"news-headlines\"]/li[6]");
-    private By setPaginatsya = By.xpath("//*[@id=\"ancore\"]/div[13]/div/ul/li[7]/a");
+    private By setPaginatsya = By.xpath("/html/body/div[3]/div[3]/div/div[1]/div[8]/div/div[15]/div/ul/li[7]/a");
     private By setSingl = By.xpath("/html/body/div[6]/div[3]/div[1]/div[2]/div/div[2]/div/div/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/i");
     private By setTrek = By.xpath("/html/body/div/div[2]/div/div/div[2]/div/div[1]/div/div[3]");
     private By setSound = By.xpath("/html/body/div/div[2]/div/div/div[3]/div[3]/div[3]/div[3]");
