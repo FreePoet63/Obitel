@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +22,8 @@ public class LavkaPageTest {
 
     @Before
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-notifications");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://lavka-obitel.ru/");
