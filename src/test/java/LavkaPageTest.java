@@ -138,7 +138,7 @@ public class LavkaPageTest {
         lavkaPage.fieldNumber();
         lavkaPage.fielfSetNumber("2");
         LavkaPage lav = lavkaPage.buttonCustomer();
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         String number1 = lav.numberCustom();
         Assert.assertEquals("2", number1);
         LavkaPage Mon = lavkaPage.fieldWindow();
