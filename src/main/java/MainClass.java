@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -8,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     public static void main(String[] args) {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
+        WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -18,20 +19,6 @@ public class MainClass {
         RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
         LavkaPage lavkaPage = PageFactory.initElements(driver, LavkaPage.class);
         HTML5Page html5Page = PageFactory.initElements(driver, HTML5Page.class);
-        driver.get("https://zaycev.net/");
-        mainPage.newMusic();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        mainPage.newTrek();
-        mainPage.newSound();
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         driver.get("https://obitel-minsk.ru/");
         String mainTab = driver.getWindowHandle();
         html5Page.openVideo();
@@ -133,7 +120,7 @@ public class MainClass {
         lavkaPage.fielfSetNumber("2");
         lavkaPage.buttonCustomer();
         try {
-            Thread.sleep(7000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

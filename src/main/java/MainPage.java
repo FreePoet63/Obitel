@@ -34,9 +34,6 @@ public class MainPage {
     private By setHeadlines3 = By.xpath("//ul[@class=\"news-headlines\"]/li[3]");
     private By setHeadlines6 = By.xpath("//ul[@class=\"news-headlines\"]/li[6]");
     private By setPaginatsya = By.xpath("/html/body/div[3]/div[3]/div/div[1]/div[8]/div/div[15]/div/ul/li[7]/a");
-    private By setSingl = By.xpath("/html/body/div[6]/div[3]/div[1]/div[2]/div/div[2]/div/div/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/i");
-    private By setTrek = By.xpath("/html/body/div/div[2]/div/div/div[2]/div/div[1]/div/div[3]");
-    private By setSound = By.xpath("/html/body/div/div[2]/div/div/div[3]/div[3]/div[3]/div[3]");
 
 
 
@@ -104,25 +101,6 @@ public class MainPage {
     public void paginatsya() {
         WebDriverWait waitt = new WebDriverWait(driver, 5);
         waitt.until(ExpectedConditions.visibilityOfElementLocated(setPaginatsya)).click();
-    }
-
-    public void newMusic() {
-        driver.findElement(setSingl).click();
-
-    }
-
-    public void newTrek() {
-        Actions actionsTrek = new Actions(driver);
-        WebElement trek = driver.findElement(setTrek);
-        actionsTrek.dragAndDropBy(trek, 250, 0).perform();
-
-    }
-
-    public void newSound() {
-        Actions actionsX = new Actions(driver);
-        WebElement volumeT = driver.findElement(setSound);
-        actionsX.dragAndDropBy(volumeT, -40, 0).perform();
-
     }
 
 }

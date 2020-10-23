@@ -1,3 +1,4 @@
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -5,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +23,10 @@ public class LavkaPageTest {
 
     @Before
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\chromedriver.exe");
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://lavka-obitel.ru/");
@@ -125,60 +129,28 @@ public class LavkaPageTest {
             System.out.println(candles.get(i).getText());
         }
         assertThat(candlesText, hasItem("210 руб."));
-
-
     }
 
 
     @Test
-    public void lavkaShop() {
+    public void lavkaShop() throws InterruptedException {
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(7000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(7000);
         lavkaPage.fieldChetki();
         lavkaPage.fieldTovar();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.fieldNumber();
         lavkaPage.fielfSetNumber("2");
         LavkaPage lav = lavkaPage.buttonCustomer();
-        try {
-            Thread.sleep(7000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(3000);
         String number1 = lav.numberCustom();
         Assert.assertEquals("2", number1);
         LavkaPage Mon = lavkaPage.fieldWindow();
         String SumMoney = Mon.money();
         Assert.assertEquals("1 800,00 руб.", SumMoney);
-        lavkaPage.fieldNumber();
-        lavkaPage.fielfSetNumber("1");
-        lavkaPage.buttonCustomer();
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        String number2 = lav.numberCustom();
-        Assert.assertEquals("3", number2);
-        lavkaPage.fieldWindow();
-        String Monney = Mon.money();
-        Assert.assertEquals("2 700,00 руб.", Monney);
         lavkaPage.fieldDelete();
-        try {
-            Thread.sleep(4000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.fieldAlert();
     }
+
     @Test
     public void fieldMenu() {
         lavkaPage.fieldUtvar();
