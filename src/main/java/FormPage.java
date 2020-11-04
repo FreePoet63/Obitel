@@ -8,6 +8,7 @@ public class FormPage {
         this.driver = driver;
     }
 
+    private By setFormPage = By.xpath("/html/body/div[3]/footer/div/div/div[2]/ul/li[3]/a");
     private By ProEmail = By.xpath("//*[@id=\"inputEmail\"]");
     private By Queston = By.xpath("//*[@id=\"f_question\"]");
     private By Author = By.xpath("//*[@id=\"f_author\"]");
@@ -17,7 +18,7 @@ public class FormPage {
 
 
     public FormPage openForm() {
-        driver.findElement(By.xpath("/html/body/div[3]/footer/div/div[2]/div[2]/ul/li[3]/a")).click();
+        driver.findElement(setFormPage).click();
         return this;
     }
     public FormPage Email(String email) {

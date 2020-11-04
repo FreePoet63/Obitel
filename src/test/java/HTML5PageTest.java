@@ -69,7 +69,6 @@ public class HTML5PageTest {
             e.printStackTrace();
         }
        html5Page.videoPlayer();
-        Assert.assertTrue(true);
     }
 
     @Test
@@ -89,8 +88,6 @@ public class HTML5PageTest {
             e.printStackTrace();
         }
         html5Page.openAudio();
-         Assert.assertTrue(true);
-
     }
 
     @After
