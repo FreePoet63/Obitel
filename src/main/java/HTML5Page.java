@@ -10,7 +10,7 @@ public class HTML5Page {
     public HTML5Page(WebDriver driver) {
         this.driver = driver;
     }
-        private By setVideo = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[1]/div[5]/div[1]/div[1]/div/div[2]/a/img");
+        private By setVideo = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[1]/div[6]/div[2]/div[2]/div/a/img");
         private By setPlay = By.xpath("//*[@id=\"player\"]");
         private By setAudio = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[1]");
         private By setAction = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[5]/div[1]/a");
