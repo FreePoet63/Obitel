@@ -41,6 +41,7 @@ public class HTML5PageTest {
             links[i] = linksize.get(i).getAttribute("href");
             System.out.println(linksize.get(i).getAttribute("href"));
             Assert.assertTrue(linksize.get(i).getAttribute("href"), true);
+
         }
 
     }
@@ -49,7 +50,7 @@ public class HTML5PageTest {
     public void videoPlay() {
         html5Page.openVideo();
         try {
-            Thread.sleep(20000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

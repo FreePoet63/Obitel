@@ -30,30 +30,19 @@ public class LavkaPageTest {
         String mainTab2 = driver.getWindowHandle();
         lavkaPage = new LavkaPage(driver);
     }
+
     @Test
-    public void sumElement() {
+    public void sumElement() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(7000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         LavkaPage clickSlay=lavkaPage.fieldChetki();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(5000);
         String firstSlay = clickSlay.slaiderNew();
         Assert.assertEquals("105 руб.", firstSlay);
         String secondSlay = clickSlay.fieldStringSlay();
         Assert.assertEquals("1 200,99 руб.", secondSlay);
         LavkaPage cliderNow = lavkaPage.sliderClick();
-        try {
-            Thread.sleep(7000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(7000);
         String slaiderText = cliderNow.slaiderNew();
         Assert.assertEquals("505 руб.", slaiderText);
         LavkaPage clayNow = lavkaPage.newSlayderClick();
@@ -66,13 +55,9 @@ public class LavkaPageTest {
         Assert.assertEquals("821,99 руб.", newSlayderText);
     }
     @Test
-    public void arrayListItems() {
+    public void arrayListItems() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.candleField();
         List<WebElement> items24 = lavkaPage.itemsCandlesMenu();
         System.out.println("Size of the elenents : "+items24.size());
@@ -97,13 +82,9 @@ public class LavkaPageTest {
                 containsString("Поминальные свечи для домашней молитвы")));
     }
     @Test
-    public void itemsFlame() {
+    public void itemsFlame() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.candleField();
         List<WebElement> priceFlame = lavkaPage.itemsProduct();
         ArrayList<String> priceFlameText = new ArrayList<String>();
@@ -131,8 +112,8 @@ public class LavkaPageTest {
 
     @Test
     public void lavkaShop() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        Thread.sleep(7000);
         lavkaPage.fieldChetki();
         lavkaPage.fieldTovar();
         lavkaPage.fieldNumber();
@@ -149,13 +130,9 @@ public class LavkaPageTest {
     }
 
     @Test
-    public void fieldMenu() {
+    public void fieldMenu() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.fieldChetki();
         List<WebElement> stringList = lavkaPage.stringListMenu();
         for (WebElement element: stringList) {
@@ -165,32 +142,20 @@ public class LavkaPageTest {
 
     }
     @Test
-    public void formatmenu() {
+    public void formatmenu() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.fieldChetki();
         lavkaPage.formatOption("900");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(5000);
         Assert.assertEquals("900","900");
         lavkaPage.formatOption("550");
         Assert.assertEquals("550", "550");
     }
     @Test
-    public void menuFieldItems() {
+    public void menuFieldItems() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.fieldChetki();
         List<WebElement> ellement = lavkaPage.itemsProduct();
         System.out.println(ellement.size());
@@ -202,13 +167,9 @@ public class LavkaPageTest {
 
     }
     @Test
-    public void itemsTeam() {
+    public void itemsTeam() throws InterruptedException {
+        Thread.sleep(5000);
         lavkaPage.fieldUtvar();
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         lavkaPage.fieldChetki();
         List<WebElement> ellements = lavkaPage.itemsProduct();
         ArrayList<String> ellementsText =new ArrayList<String>();

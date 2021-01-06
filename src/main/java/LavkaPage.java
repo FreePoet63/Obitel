@@ -14,8 +14,8 @@ public class LavkaPage  {
     public LavkaPage(WebDriver driver) {
         this.driver = driver;
     }
-    private By setShop = By.xpath("//nav//li//span[normalize-space(.)='Утварь']/..");
-    private By setObject = By.xpath("/html/body/div[2]/main/div[3]/div[2]/div/div[2]/div/div[1]/div[2]/ol/li[9]/a");
+    private By setShop = By.xpath("//nav//li//span[normalize-space(.)='Утварь']");
+    private By setObject = By.xpath("//span[contains(text(), \"Четки\")]");
     private By setCustomer = By.xpath("//*[@id=\"maincontent\"]/div[4]/div[1]/div[3]/ol/li[4]");
     private By setFieldnumber = By.xpath("//*[@id=\"qty\"]");
     private By setButtoncustom = By.xpath("//*[contains(text(), \"Выбрать\")]");
@@ -24,7 +24,7 @@ public class LavkaPage  {
     private By setAllert = By.xpath("//button[@class=\"action-primary action-accept\"]");
     private By setCustometfirst = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a/span[2]/span[1]");
     private By setFieldmoney = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[2]/div/span/span");
-    private By setCandle = By.xpath("//a[contains(text(), 'Церковные свечи')]");
+    private By setCandle = By.xpath("//span[contains(text(), 'Церковные свечи')]");
     private By setObjectNew = By.xpath("/html/body/div[2]/div/div/div[2]/nav/ul/li[6]/ul/li[10]/a/span");
     private By setSlider = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[1]");
     private By slaiderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[1]");
@@ -39,7 +39,9 @@ public class LavkaPage  {
 
 
     public void fieldUtvar() {
-        driver.findElement(setShop).click();
+        Actions act = new Actions(driver);
+        WebElement e = driver.findElement(setShop);
+        act.moveToElement(e).click().build().perform();
        }
 
     public LavkaPage fieldChetki() {

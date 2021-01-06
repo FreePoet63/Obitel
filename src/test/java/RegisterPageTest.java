@@ -41,7 +41,7 @@ public class RegisterPageTest {
     public void errorRegistred() {
         registerPage.registration();
         try {
-            Thread.sleep(15000);
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -49,7 +49,6 @@ public class RegisterPageTest {
         registerPage.emailSet("....");
         registerPage.passwordSet("4444");
         registerPage.doublePasswordSet("65789");
-        registerPage.buttonSet();
         RegisterPage vera = registerPage.buttonSet();
         String Error = vera.errorLastNameSet();
         Assert.assertEquals("Это поле обязательно для заполнения.", Error);
