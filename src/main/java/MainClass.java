@@ -1,6 +1,6 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainClass {
     public static void main(String[] args) {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
