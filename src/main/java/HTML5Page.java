@@ -17,9 +17,9 @@ public class HTML5Page {
         private By setPlayAudio = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[5]/div[2]/div/div");
         private By setLinks = By.xpath("/html/body/div[3]/div[4]/div/a/img");
         private By setCross = By.xpath("/html/body/div[3]/div[3]/div/div[2]/div[2]/div/div/div[1]/div[3]/div/div/div[3]/div[2]/span");
-        private By setX = By.xpath("/html/body/div[1]/div/div[24]/div[2]/div[1]/span/button");
-        private By setY = By.xpath("/html/body/div[1]/div/div[24]/div[2]/div[1]/span/div/div/div");
-        private By setWindowVideo = By.xpath("/html/body/div[1]/div/div[24]/div[2]/div[2]/button[7]");
+        private By setX = By.xpath("/html/body/div[1]/div/div[23]/div[2]/div[1]/span/button");
+        private By setY = By.xpath("/html/body/div[1]/div/div[23]/div[2]/div[1]/span/div/div/div");
+        private By setWindowVideo = By.xpath("/html/body/div[1]/div/div[23]/div[2]/div[2]/button[7]");
         private By setFrame = By.xpath("/html/body/div[3]/div[3]/div/div[1]/div[1]/iframe");
 
 

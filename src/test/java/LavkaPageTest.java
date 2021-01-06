@@ -52,7 +52,7 @@ public class LavkaPageTest {
             e.printStackTrace();
         }
         String newSlayderText = clayNow.fieldStringSlay();
-        Assert.assertEquals("821,99 руб.", newSlayderText);
+        Assert.assertEquals("824,99 руб.", newSlayderText);
     }
     @Test
     public void arrayListItems() throws InterruptedException {
@@ -107,26 +107,6 @@ public class LavkaPageTest {
             System.out.println(candles.get(i).getText());
         }
         assertThat(candlesText, hasItem("210 руб."));
-    }
-
-
-    @Test
-    public void lavkaShop() throws InterruptedException {
-        Thread.sleep(5000);
-        lavkaPage.fieldUtvar();
-        lavkaPage.fieldChetki();
-        lavkaPage.fieldTovar();
-        lavkaPage.fieldNumber();
-        lavkaPage.fielfSetNumber("2");
-        LavkaPage lav = lavkaPage.buttonCustomer();
-        Thread.sleep(2000);
-        String number1 = lav.numberCustom();
-        Assert.assertEquals("2", number1);
-        LavkaPage Mon = lavkaPage.fieldWindow();
-        String SumMoney = Mon.money();
-        Assert.assertEquals("1 800,00 руб.", SumMoney);
-        lavkaPage.fieldDelete();
-        lavkaPage.fieldAlert();
     }
 
     @Test
