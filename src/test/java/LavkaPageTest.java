@@ -54,6 +54,7 @@ public class LavkaPageTest {
         String newSlayderText = clayNow.fieldStringSlay();
         Assert.assertEquals("824,99 руб.", newSlayderText);
     }
+
     @Test
     public void arrayListItems() throws InterruptedException {
         Thread.sleep(5000);
@@ -81,6 +82,7 @@ public class LavkaPageTest {
                 containsString("Свечи для домашней молитвы"),
                 containsString("Поминальные свечи для домашней молитвы")));
     }
+
     @Test
     public void itemsFlame() throws InterruptedException {
         Thread.sleep(5000);
@@ -119,8 +121,8 @@ public class LavkaPageTest {
             System.out.println((element.getText()));
             Assert.assertTrue(element.getText().contains("Четки"));
         }
-
     }
+
     @Test
     public void formatmenu() throws InterruptedException {
         Thread.sleep(5000);
@@ -132,6 +134,7 @@ public class LavkaPageTest {
         lavkaPage.formatOption("550");
         Assert.assertEquals("550", "550");
     }
+
     @Test
     public void menuFieldItems() throws InterruptedException {
         Thread.sleep(5000);
@@ -144,8 +147,8 @@ public class LavkaPageTest {
             System.out.println(ellement.get(5).getText());
             Assert.assertTrue(ellement.get(5).getText().contains("126"));
         }
-
     }
+
     @Test
     public void itemsTeam() throws InterruptedException {
         Thread.sleep(5000);
@@ -163,7 +166,6 @@ public class LavkaPageTest {
         }
         assertThat(ellementsText, hasItems(containsString("Браслет"),
                 containsString("Четки")));
-
     }
 
    @After

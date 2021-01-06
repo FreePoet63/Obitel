@@ -22,16 +22,12 @@ public class LavkaPage  {
     private By setWindowfield = By.xpath("//a[@class=\"action showcart\"]");
     private By setDeleteCustom = By.xpath("//a[@class=\"action delete\"]");
     private By setAllert = By.xpath("//button[@class=\"action-primary action-accept\"]");
-    private By setCustometfirst = By.xpath("/html/body/div[2]/header/div[2]/div[1]/a/span[2]/span[1]");
-    private By setFieldmoney = By.xpath("//*[@id=\"minicart-content-wrapper\"]/div[2]/div[2]/div/span/span");
     private By setCandle = By.xpath("//span[contains(text(), 'Церковные свечи')]");
     private By setObjectNew = By.xpath("/html/body/div[2]/div/div/div[2]/nav/ul/li[6]/ul/li[10]/a/span");
     private By setSlider = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[1]");
     private By slaiderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[1]");
-    private By setSlay = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[1]");
     private By stringSlay = By.xpath("//*[@id=\"narrow-by-list\"]/div/div[2]/div/div[2]");
     private By newSlayderField = By.xpath("/html/body/div[2]/main/div[4]/div[2]/div/div[2]/div/div/div[2]/div/div[3]/a[2]");
-    private By windowHelp = By.xpath("//*[@id=\"app\"]/div/div/div/header/span/nav/button[2]");
     private By menuItemsCandles = By.xpath("//div[@class=\"product details product-item-details\"]");
     private By getItemsProduct = By.xpath("//ol[@class = \"products list items product-items\"]/li");
     private By getCandleProduct = By.xpath("//span[contains(text(), \"210\")]");
@@ -52,10 +48,6 @@ public class LavkaPage  {
     public LavkaPage fieldTovar() {
         driver.findElement(setCustomer).click();
         return this;
-    }
-
-    public String numberCustom() {
-        return driver.findElement(setCustometfirst).getText();
     }
 
     public void fieldNumber() {
@@ -86,10 +78,6 @@ public class LavkaPage  {
         driver.findElement(setAllert).click();
     }
 
-    public String money() {
-        return driver.findElement(setFieldmoney).getText();
-    }
-
     public void fieldNewObject() {
         driver.findElement(setObjectNew).click();
     }
@@ -99,33 +87,31 @@ public class LavkaPage  {
         System.out.println(driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).getText());
         driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).click();
     }
+
     public void candleField() {
         driver.findElement(setCandle).click();
     }
+
     public String slaiderNew() {
         return driver.findElement(setSlider).getText();
     }
+
     public LavkaPage sliderClick() {
         Actions actionsEle = new Actions(driver);
         WebElement slider = driver.findElement(slaiderField);
         actionsEle.dragAndDropBy(slider,74, 0).perform();
         return this;
     }
-    public LavkaPage fieldSlay() {
-        driver.findElement(setSlay).click();
-        return this;
-    }
+
     public String fieldStringSlay() {
         return driver.findElement(stringSlay).getText();
     }
+
     public LavkaPage newSlayderClick() {
         Actions actionsElemm = new Actions(driver);
         WebElement newSlider = driver.findElement(newSlayderField);
         actionsElemm.dragAndDropBy(newSlider,-70,0).perform();
         return this;
-    }
-    public void helpWindow() {
-        driver.findElement(windowHelp).click();
     }
     public List<WebElement> itemsCandlesMenu() {
        return driver.findElements(menuItemsCandles);
