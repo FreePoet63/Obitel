@@ -45,29 +45,12 @@ public class HTML5PageTest {
     }
 
     @Test
-    public void videoPlay() {
+    public void videoPlay() throws InterruptedException {
         html5Page.openVideo();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         html5Page.videoFrame();
         html5Page.videoPlayer();
-        try {
-            Thread.sleep(6000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        html5Page.xVolume();
-        html5Page.dragSlay();
-        html5Page.windowVideo();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-       html5Page.videoPlayer();
+        Thread.sleep(10000);
+        html5Page.videoPlayer();
     }
 
     @Test
