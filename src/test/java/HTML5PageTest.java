@@ -54,21 +54,12 @@ public class HTML5PageTest {
     }
 
     @Test
-    public void audioObitel() {
+    public void audioObitel() throws InterruptedException {
         html5Page.openAudio();
-        try {
-            Thread.sleep(25000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.sleep(25000);
         html5Page.audioCross();
         html5Page.openAction();
         html5Page.volumePlay();
-         try {
-            Thread.sleep(7000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         html5Page.openAudio();
     }
 

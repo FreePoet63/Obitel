@@ -51,7 +51,6 @@ public class HTML5Page {
             WebElement voise = driver.findElement(setPlayAudio);
             actions777.moveToElement(voise).build().perform();
             voise.click();
-            voise.click();
         }
         public void fieldLinks() {
             driver.findElement(setLinks).click();
@@ -59,7 +58,7 @@ public class HTML5Page {
         public void audioCross() {
             Actions actionsAudio = new Actions(driver);
             WebElement cross = driver.findElement(setCross);
-            actionsAudio.dragAndDropBy(cross,80, 0).perform();
+            actionsAudio.dragAndDropBy(cross,60, 0).perform();
 
         }
         public void xVolume() {
