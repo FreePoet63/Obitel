@@ -33,7 +33,7 @@ public class LavkaPageTest {
 
     @Test
     public void sumElement() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         LavkaPage clickSlay=lavkaPage.fieldChetki();
         Thread.sleep(5000);
@@ -57,7 +57,7 @@ public class LavkaPageTest {
 
     @Test
     public void arrayListItems() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         lavkaPage.candleField();
         List<WebElement> items24 = lavkaPage.itemsCandlesMenu();
@@ -85,7 +85,7 @@ public class LavkaPageTest {
 
     @Test
     public void itemsFlame() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         lavkaPage.candleField();
         List<WebElement> priceFlame = lavkaPage.itemsProduct();
@@ -99,7 +99,6 @@ public class LavkaPageTest {
         assertThat(priceFlameText, hasItem("Свечи для домашней молитвы к святому" +
                 " Спиридону Тримифунтскому (40 шт)\n" +
                 "210 руб."));
-
         List<WebElement> candles = lavkaPage.candleProduct();
         ArrayList<String> candlesText = new ArrayList<String>();
         for (WebElement eleCandle : candles)
@@ -113,7 +112,7 @@ public class LavkaPageTest {
 
     @Test
     public void fieldMenu() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> stringList = lavkaPage.stringListMenu();
@@ -125,7 +124,7 @@ public class LavkaPageTest {
 
     @Test
     public void formatmenu() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         lavkaPage.fieldChetki();
         lavkaPage.formatOption("900");
@@ -137,7 +136,7 @@ public class LavkaPageTest {
 
     @Test
     public void menuFieldItems() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> ellement = lavkaPage.itemsProduct();
@@ -151,7 +150,7 @@ public class LavkaPageTest {
 
     @Test
     public void itemsTeam() throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(7000);
         lavkaPage.fieldUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> ellements = lavkaPage.itemsProduct();
