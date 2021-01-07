@@ -48,11 +48,8 @@ public class HTML5Page {
         }
         public void volumePlay() {
             Actions actions777 = new Actions(driver);
-            JavascriptExecutor jsgt = (JavascriptExecutor) driver;
             WebElement voise = driver.findElement(setPlayAudio);
-            actions777.moveToElement(voise).build().perform();
-            jsgt.executeScript("arguments[0].click();",voise);
-            voise.click();
+            actions777.moveToElement(voise).click().build().perform();
         }
         public void fieldLinks() {
             driver.findElement(setLinks).click();
