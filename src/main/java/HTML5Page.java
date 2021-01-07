@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,7 +25,9 @@ public class HTML5Page {
 
 
         public void openVideo() {
-            driver.findElement(setVideo).click();
+            JavascriptExecutor jsg = (JavascriptExecutor) driver;
+            WebElement vid = driver.findElement(setVideo);
+            jsg.executeScript("arguments[0].click();",vid);
         }
         public void videoFrame() {
             WebElement frramm = driver.findElement(setFrame);

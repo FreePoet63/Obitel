@@ -49,7 +49,7 @@ public class HTML5PageTest {
         html5Page.openVideo();
         html5Page.videoFrame();
         html5Page.videoPlayer();
-        Thread.sleep(10000);
+        Thread.sleep(20000);
         html5Page.videoPlayer();
     }
 
