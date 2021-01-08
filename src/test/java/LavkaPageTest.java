@@ -52,7 +52,7 @@ public class LavkaPageTest {
             e.printStackTrace();
         }
         String newSlayderText = clayNow.fieldStringSlay();
-        Assert.assertEquals("824,99 руб.", newSlayderText);
+        Assert.assertEquals("700,99 руб.", newSlayderText);
     }
 
     @Test
@@ -112,7 +112,7 @@ public class LavkaPageTest {
 
     @Test
     public void fieldMenu() throws InterruptedException {
-        Thread.sleep(7000);
+        Thread.sleep(8000);
         lavkaPage.fieldUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> stringList = lavkaPage.stringListMenu();
