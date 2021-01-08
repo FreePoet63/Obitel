@@ -44,7 +44,7 @@ public class LavkaPageTest {
         LavkaPage cliderNow = lavkaPage.sliderClick();
         Thread.sleep(7000);
         String slaiderText = cliderNow.slaiderNew();
-        Assert.assertEquals("505 руб.", slaiderText);
+        Assert.assertEquals("642 руб.", slaiderText);
         LavkaPage clayNow = lavkaPage.newSlayderClick();
         try {
             Thread.sleep(5000);
