@@ -71,7 +71,6 @@ public class MainPage {
         Actions actions = new Actions(driver);
         actions.moveToElement(link).build().perform();
         driver.findElement(setFieldLink1).click();
-        driver.findElement(getFieldLink1).click();
         driver.navigate().back();
     }
 
