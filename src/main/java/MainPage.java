@@ -38,13 +38,13 @@ public class MainPage {
 
 
 
-    public void obitelSearch() {
-        driver.findElement(nameObitel).click();
-        driver.findElement(setClickSearch).click();
+    public MainPage obitelSearch(String word) {
+        driver.findElement(nameObitel).sendKeys(word);
+        return this;
     }
 
     public MainPage typeword(String word) {
-        driver.findElement(nameObitel).sendKeys(word);
+        driver.findElement(setClickSearch).click();
         return this;
     }
 
