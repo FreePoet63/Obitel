@@ -31,6 +31,7 @@ public class MainPageTest {
 
     @Test
     public void obitelSearch() throws InterruptedException {
+        Thread.sleep(8000);
         mainPage.obitelSearch("Батюшка");
         mainPage.YouTube();
         mainPage.OK();
