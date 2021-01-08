@@ -55,7 +55,7 @@ public class MainClass {
         html5Page.volumePlay();
         html5Page.openAudio();
         driver.navigate().to("https://obitel-minsk.ru/");
-        mainPage.obitelSearch("Батюшка");
+        mainPage.obitelSearch();
         mainPage.clickSearch();
         for (String tab : driver.getWindowHandles()) {
             driver.switchTo().window(tab);

@@ -35,10 +35,11 @@ public class MainPage {
 
 
 
-    public MainPage obitelSearch(String word) {
-        driver.findElement(nameObitel).sendKeys(word);
-        driver.findElement(nameObitel).sendKeys(Keys.ENTER);
-        return this;
+    public void obitelSearch() {
+        WebElement myElement = driver.findElement(nameObitel);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();",myElement);
+        myElement.sendKeys("Батюшка");
     }
 
     public MainPage typeword(String word) {
