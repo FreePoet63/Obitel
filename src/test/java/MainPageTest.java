@@ -30,7 +30,8 @@ public class MainPageTest {
     }
 
     @Test
-    public void obitelSearch() {
+    public void obitelSearch() throws InterruptedException {
+        Thread.sleep(5000);
         mainPage.obitelSearch();
         mainPage.typeword("Батюшка");
         mainPage.clickSearch();
