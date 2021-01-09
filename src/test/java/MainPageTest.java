@@ -30,7 +30,7 @@ public class MainPageTest {
     }
 
     @Test
-    public void obitelSearch() throws InterruptedException {
+    public void obitelSearch() {
         mainPage.obitelSearch();
         mainPage.YouTube();
         mainPage.OK();

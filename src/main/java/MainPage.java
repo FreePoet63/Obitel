@@ -38,8 +38,8 @@ public class MainPage {
     public void obitelSearch() {
         WebElement myElement = driver.findElement(nameObitel);
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();",myElement);
-        myElement.sendKeys("Батюшка");
+        js.executeScript("arguments[0].value='Батюшка';", myElement);
+
     }
 
     public MainPage typeword(String word) {
