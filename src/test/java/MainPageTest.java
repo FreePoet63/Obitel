@@ -33,7 +33,6 @@ public class MainPageTest {
     public void obitelSearch() {
         mainPage.obitelSearch();
         mainPage.YouTube();
-        mainPage.OK();
     }
     @Test
     public void obitel() {
