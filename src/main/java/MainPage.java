@@ -53,11 +53,15 @@ public class MainPage {
     }
 
     public void YouTube() {
-        driver.findElement(setYouTube).click();
+        WebElement e1 = driver.findElement(setYouTube);
+        JavascriptExecutor exe = (JavascriptExecutor) driver;
+        exe.executeScript("aeguments[0].click();",e1);
     }
 
     public void OK() {
-        driver.findElement(setOK).click();
+       WebElement e2 =  driver.findElement(setOK);
+       JavascriptExecutor ex = (JavascriptExecutor) driver;
+       ex.executeScript("arguments[0].click();",e2);
     }
 
     public void checkboxes() {
