@@ -13,7 +13,6 @@ import java.util.List;
 public class LavkaPage  {
 
     private static WebDriver driver;
-    private int i;
 
     public LavkaPage(WebDriver driver) {
         this.driver = driver;
