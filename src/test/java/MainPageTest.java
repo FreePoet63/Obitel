@@ -1,54 +1,24 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import page.basepage.DriverObitelPageSettings;
 
-import java.util.concurrent.TimeUnit;
-
-public class MainPageTest {
-
-    private WebDriver driver;
-    private WebDriverWait wait;
-    private MainPage mainPage;
-
-    @Before
-    public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("https://obitel-minsk.ru/");
-        String mainTab = driver.getWindowHandle();
-        mainPage = new MainPage(driver);
-        for (String tab : driver.getWindowHandles()) {
-            driver.switchTo().window(tab);
-        }
-
-    }
+public class MainPageTest extends DriverObitelPageSettings {
 
     @Test
     public void obitelSearch() throws InterruptedException {
         mainPage.obitelSearch();
+        mainPage.seeMenuOK();
         Thread.sleep(3000);
-        mainPage.OK();
     }
+
     @Test
     public void obitel() {
-        mainPage.Link1();
-        mainPage.Link2();
-        mainPage.Link3();
+        mainPage.pageLink1();
+        mainPage.pageLink2();
+        mainPage.pageLink3();
     }
+
     @Test
     public void pages() {
         mainPage.pagesObitel();
-        mainPage.paginatsya();
     }
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
-
 }

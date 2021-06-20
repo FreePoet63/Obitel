@@ -1,68 +1,39 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import page.basepage.DriverLavkaPageSettings;
+import page.obitel.RegisterPage;
 
-import java.util.concurrent.TimeUnit;
+import static page.settings.TestConfig.*;
+import static page.settings.TestDate.*;
 
-public class RegisterPageTest {
-    private WebDriver driver;
-    private RegisterPage registerPage;
+public class RegisterPageTest extends DriverLavkaPageSettings {
 
-    @Before
-    public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("https://lavka-obitel.ru/");
-        String mainTab2 = driver.getWindowHandle();
-        registerPage = new RegisterPage(driver);
-    }
     @Test
     public void autorisation() {
         registerPage.registration();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        registerPage.nameSet("Наташа");
-        registerPage.lastNameSet("Терехова");
-        registerPage.Clickos();
-        registerPage.emailSet("Nata@mail.ru");
-        registerPage.passwordSet("77777gospod");
-        registerPage.doublePasswordSet("77777gospod");
+        registerPage.nameSet(NAME_REGISTER);
+        registerPage.lastNameSet(LASTNAME_REGISTER);
+        registerPage.clickMethod();
+        registerPage.emailSet(EMAIL_REGISTER);
+        registerPage.passwordSet(PASSWORD);
+        registerPage.doublePasswordSet(DOUBLEPASSWORD);
     }
+
     @Test
-    public void errorRegistred() {
+    public void errorRegistred() throws InterruptedException {
         registerPage.registration();
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         registerPage.lastNameSet("");
         registerPage.emailSet("....");
-        registerPage.passwordSet("4444");
-        registerPage.doublePasswordSet("65789");
-        RegisterPage vera = registerPage.buttonSet();
+        registerPage.passwordSet(PASSWORD);
+        registerPage.doublePasswordSet(NOPASSWORD);
+        RegisterPage vera = registerPage.waitButton();
         String Error = vera.errorLastNameSet();
-        Assert.assertEquals("Это поле обязательно для заполнения.", Error);
+        Assert.assertEquals(LASTNAME_ERROR_REGISTER, Error);
         String Error1 = vera.errorMailSet();
-        Assert.assertEquals("Пожалуйста, введите правильный адрес электронной почты (Пример: johndoe@domain.com).", Error1);
+        Assert.assertEquals(EMAIL_ERROR_REGISTER, Error1);
         String Error2 = vera.errorPassSet();
-        Assert.assertEquals("Минимальная длина этого поля должна быть равна или больше 8 символов. Пробелы перед и после символов будут проигнорированы.", Error2);
+        Assert.assertEquals(PASS_ERROR_REGISTER, Error2);
         String Error3 = vera.errorDoublPassSet();
-        Assert.assertEquals("Please enter the same value again.", Error3);
+        Assert.assertEquals(DOUBLEPASS_ERROR_REGISTER, Error3);
     }
-    @After
-    public void tearDown() {
-        driver.quit();
-    }
-
-
 }
