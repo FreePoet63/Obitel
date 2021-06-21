@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import static page.dafault.MethodsToDefault.clickJS;
+import static page.dafault.MethodsToDefault.setValueJS;
+
 public class MainPage {
     private WebDriver driver;
 
@@ -25,15 +28,14 @@ public class MainPage {
     private By setHeadlines6 = By.xpath("//ul[@class=\"news-headlines\"]/li[6]");
 
     public void obitelSearch() {
+        String name = "Батюшка";
         WebElement myElement = driver.findElement(nameObitel);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].value='Батюшка';", myElement);
+        setValueJS(driver, name, myElement);
     }
 
     public void seeMenuOK() {
        WebElement e2 =  driver.findElement(setOK);
-       JavascriptExecutor ex = (JavascriptExecutor) driver;
-       ex.executeScript("arguments[0].click();",e2);
+       clickJS(driver, e2);
     }
 
     public void pageLink1() {

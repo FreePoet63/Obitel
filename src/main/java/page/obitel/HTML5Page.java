@@ -9,6 +9,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+import static page.dafault.MethodsToDefault.waitToClicable;
 import static page.settings.TestConfig.LINKCOUNT_HTMLPAGE;
 import static page.settings.TestConfig.LINKS_HTMLPAGE;
 
@@ -27,10 +28,13 @@ public class HTML5Page {
     private By setFrame = By.xpath("//iframe[starts-with(@class,\"embed\")]");
 
     public void openVideo() {
+        waitToClicable(driver, 10, setOpenVideo);
         WebElement openPage = driver.findElement(setOpenVideo);
         Actions actions = new Actions(driver);
         actions.moveToElement(openPage).build().perform();
-        driver.findElement(setOpenVideoPage).click();
+        waitToClicable(driver, 10, setOpenVideoPage);
+        WebElement openLink = driver.findElement(setOpenVideoPage);
+        openLink.click();
     }
 
     public void clickVideo() {

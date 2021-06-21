@@ -1,13 +1,10 @@
 package page.obitel;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.FluentWait;
 
-import java.time.Duration;
-import java.util.function.Function;
+import static page.dafault.MethodsToDefault.waitTimeoutFluent;
 
 public class RegisterPage {
     private WebDriver driver;
@@ -32,65 +29,55 @@ public class RegisterPage {
         driver.findElement(registredAuto).click();
     }
 
-    public RegisterPage nameSet(String name) {
+     public RegisterPage nameSet(String name) {
          driver.findElement(setName).sendKeys(name);
          return this;
-    }
+     }
 
-    public RegisterPage lastNameSet(String lastname) {
+     public RegisterPage lastNameSet(String lastname) {
          driver.findElement(setLast).sendKeys(lastname);
          return this;
-    }
+     }
 
-    public void clickMethod() {
+     public void clickMethod() {
          driver.findElement(setClick).click();
-    }
+     }
 
-    public RegisterPage emailSet(String email) {
+     public RegisterPage emailSet(String email) {
          driver.findElement(setEmail).sendKeys(email);
          return this;
-    }
+     }
 
-    public RegisterPage passwordSet(String password) {
+     public RegisterPage passwordSet(String password) {
          driver.findElement(setPassword).sendKeys(password);
          return this;
-    }
+     }
 
-    public RegisterPage doublePasswordSet(String doublpassword) {
+     public RegisterPage doublePasswordSet(String doublpassword) {
          driver.findElement(setDoublPassword).sendKeys(doublpassword);
          return this;
-    }
+     }
 
-    public String errorLastNameSet() {
+     public String errorLastNameSet() {
          return driver.findElement(setErrorLastName).getText();
-    }
+     }
 
-    public String errorMailSet() {
+     public String errorMailSet() {
          return driver.findElement(setErrorMail).getText();
-    }
+     }
 
-    public String errorPassSet() {
+     public String errorPassSet() {
          return driver.findElement(setErrorPass).getText();
-    }
+     }
 
-    public String errorDoublPassSet() {
+     public String errorDoublPassSet() {
          return driver.findElement(setErrorDoublPass).getText();
-    }
+     }
 
-     @SuppressWarnings({"unchecked", "rawtypes"})
      public RegisterPage waitButton() {
-         FluentWait fluentWait = new FluentWait(driver)
-                 .withTimeout(Duration.ofSeconds(15))
-                 .pollingEvery(Duration.ofSeconds(7))
-                 .ignoring(NoSuchElementException.class);
-         WebElement superWait = (WebElement) fluentWait.until(new Function<WebDriver, WebElement>() {
-             @SuppressWarnings("UnnecessaryLocalVariable")
-             public WebElement apply(WebDriver driver) {
-                 WebElement superWait = driver.findElement(setButton);
-                 return superWait;
-             }
-         });
-         superWait.click();
-         return this;
+        waitTimeoutFluent(driver, 15, 7, setButton);
+        WebElement ol = driver.findElement(setButton);
+        ol.click();
+        return this;
      }
 }
