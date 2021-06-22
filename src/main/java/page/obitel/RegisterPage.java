@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static page.dafault.MethodsToDefault.waitTimeoutFluent;
+import static page.dafault.MethodsToDefault.waitToVisibility;
 
 public class RegisterPage {
     private WebDriver driver;
@@ -71,7 +72,9 @@ public class RegisterPage {
      }
 
      public String errorDoublPassSet() {
-         return driver.findElement(setErrorDoublPass).getText();
+         WebElement elem = driver.findElement(setErrorDoublPass);
+         waitToVisibility(driver, 5, elem);
+         return elem.getText();
      }
 
      public RegisterPage waitButton() {

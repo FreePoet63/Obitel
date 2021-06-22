@@ -27,7 +27,7 @@ public class LavkaPage  {
     private By menuItemsCandles = By.xpath("//div[@class=\"product details product-item-details\"]");
     private By getItemsProduct = By.xpath("//ol[@class = \"products list items product-items\"]/li");
     private By getCandleProduct = By.xpath("//span[contains(text(), \"210\")]");
-    private By getStringMenu = By.xpath("//div[@class = \" column main\"]");
+    private By getStringMenu = By.xpath("//div[@class = \"column main\"]");
 
     public LavkaPage setUtvar() {
         waitToClicable(driver, 10, setSuperShop);

@@ -22,7 +22,6 @@ public class DriverLavkaPageSettings {
         String mainTab2 = driver.getWindowHandle();
         registerPage = new RegisterPage(driver);
         lavkaPage = new LavkaPage(driver);
-
     }
 
     @After
