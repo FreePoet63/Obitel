@@ -6,8 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import static page.dafault.MethodsToDefault.clickJS;
-import static page.dafault.MethodsToDefault.setValueJS;
+import static page.dafault.MethodsToDefault.*;
 
 public class MainPage {
     private WebDriver driver;
@@ -42,6 +41,7 @@ public class MainPage {
         WebElement link = driver.findElement(setLink1);
         Actions actions = new Actions(driver);
         actions.moveToElement(link).build().perform();
+        waitToClicable(driver, 6, setFieldLink1);
         driver.findElement(setFieldLink1).click();
         driver.navigate().back();
     }

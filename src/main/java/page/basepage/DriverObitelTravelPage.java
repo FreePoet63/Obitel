@@ -1,20 +1,18 @@
 package page.basepage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import page.obitel.OrderPage;
 
+import static page.driver.WebDriverStart.driver;
+import static page.driver.WebDriverStart.openDriver;
+
 public class DriverObitelTravelPage {
-    public WebDriver driver;
     public OrderPage orderPage;
 
     @Before
     public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        openDriver("Firefox");
         driver.manage().window().maximize();
         driver.get("http://palomniki-obitel.ru/bronirovanie-nomerov/");
         String mainTab1 = driver.getWindowHandle();

@@ -1,24 +1,32 @@
 package page.basepage;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import page.obitel.FormPage;
 import page.obitel.HTML5Page;
 import page.obitel.MainPage;
 
+import static page.driver.WebDriverStart.driver;
+import static page.driver.WebDriverStart.openDriver;
+
 public class DriverObitelPageSettings {
-    public WebDriver driver;
     public FormPage formPage;
     public HTML5Page html5Page;
     public MainPage mainPage;
 
     @Before
     public void setUp() {
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        ////WORKED IN SELENOID
+        /*DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("firefox");
+        capabilities.setVersion("89.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", false);
+        driver = new RemoteWebDriver(
+                URI.create("http://localhost:4444/wd/hub").toURL(),
+                capabilities
+        );*/
+        openDriver("Firefox");
         driver.manage().window().maximize();
         driver.get("https://obitel-minsk.ru/");
         formPage = new FormPage(driver);

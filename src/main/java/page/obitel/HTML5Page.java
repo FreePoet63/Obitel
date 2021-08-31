@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.List;
 
 import static page.dafault.MethodsToDefault.waitToClicable;
+import static page.logger.Log.*;
 import static page.settings.TestConfig.LINKCOUNT_HTMLPAGE;
 import static page.settings.TestConfig.LINKS_HTMLPAGE;
 
@@ -54,18 +55,18 @@ public class HTML5Page {
     public void openLinks() {
         List<WebElement> linksize = driver.findElements(setLinks);
         LINKCOUNT_HTMLPAGE = linksize.size();
-        System.out.println("Total no of links Available: " + LINKS_HTMLPAGE);
+        info("Total no of links Available: " + LINKS_HTMLPAGE);
         LINKS_HTMLPAGE = new String[LINKCOUNT_HTMLPAGE];
-        System.out.println("List of links Available: ");
+        info("List of links Available: ");
         for (int i = 0; i < LINKCOUNT_HTMLPAGE; i++) {
             LINKS_HTMLPAGE[i] = linksize.get(i).getAttribute("href");
-            System.out.println(linksize.get(i).getAttribute("href"));
+            info(linksize.get(i).getAttribute("href"));
         }
     }
 
     public void searchBrokenLinks() {
         List<WebElement> allLinks = driver.findElements(setLinks);
-        System.out.println(allLinks.size());
+        info("All Links Size: " + allLinks.size());
         for(WebElement link:allLinks){
             try {
                 String urlLink = link.getAttribute("href");
@@ -75,10 +76,10 @@ public class HTML5Page {
                 httpURLConnect.connect();
                 if(httpURLConnect.getResponseCode()>=400)
                 {
-                    System.out.println(urlLink+" - "+httpURLConnect.getResponseMessage() +"is a broken link");
+                    error(urlLink+" - "+httpURLConnect.getResponseMessage() +"is a broken link");
                 }
                 else{
-                    System.out.println(urlLink+" - "+httpURLConnect.getResponseMessage());
+                    warn(urlLink+" - "+httpURLConnect.getResponseMessage());
                 }
             }catch (Exception e) {
             }

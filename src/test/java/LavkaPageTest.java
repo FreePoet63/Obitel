@@ -6,11 +6,11 @@ import page.obitel.LavkaPage;
 
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static page.logger.Log.info;
+import static page.logger.Log.warn;
 
 public class LavkaPageTest extends DriverLavkaPageSettings {
 
@@ -35,10 +35,10 @@ public class LavkaPageTest extends DriverLavkaPageSettings {
         lavkaPage.setUtvar();
         lavkaPage.candleField();
         List<WebElement> items24 = lavkaPage.itemsCandlesMenu();
-        List<String> itemsText = items24.stream().map(s -> s.getText()).collect(Collectors.toList());
-        itemsText.forEach(System.out::println);
+        List<String> itemsText = lavkaPage.elementMenuList(items24);
+        info("itemsTextList: " + itemsText);
         assertThat(itemsText, hasItems(containsString("Набор свечей для детей"),
-                containsString("Набор паломника"),
+                containsString("Свеча восковая"),
                 containsString("Свечи для домашней молитвы")));
     }
 
@@ -47,14 +47,12 @@ public class LavkaPageTest extends DriverLavkaPageSettings {
         lavkaPage.setUtvar();
         lavkaPage.candleField();
         List<WebElement> priceFlame = lavkaPage.itemsProduct();
-        List<String> priceFlameText = priceFlame.stream().map(e -> e.getText()).collect(Collectors.toList());
-        priceFlameText.forEach(System.out::println);
-        assertThat(priceFlameText, hasItem("Свечи для домашней молитвы к святому" +
-                " Спиридону Тримифунтскому (40 шт)\n" +
-                "210 руб."));
+        List<String> priceFlameText = lavkaPage.elementMenuList(priceFlame);
+        info("PriceFlameTextList: " + priceFlameText);
+        assertThat(priceFlameText, hasItem("Свечи для домашней молитвы к " +
+                "святому Спиридону Тримифунтскому (40 шт)\n210 руб."));
         List<WebElement> candles = lavkaPage.candleProduct();
-        List<String> candlesText = candles.stream().map(el -> el.getText()).filter(ol -> ol.contains("210 руб."))
-                .collect(Collectors.toList());
+        List<String> candlesText = lavkaPage.elementFilter(candles,"210 руб.");
         assertThat(candlesText, hasItem("210 руб."));
     }
 
@@ -63,8 +61,7 @@ public class LavkaPageTest extends DriverLavkaPageSettings {
         lavkaPage.setUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> stringList = lavkaPage.stringListMenu();
-        List<String> elementList = stringList.stream().map(d -> d.getText()).filter(elem -> elem.contains("Четки"))
-                .collect(Collectors.toList());
+        List<String> elementList = lavkaPage.elementFilter(stringList, "Четки");
         assertThat(elementList, hasItem(containsString("Четки")));
     }
 
@@ -84,8 +81,8 @@ public class LavkaPageTest extends DriverLavkaPageSettings {
         lavkaPage.setUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> ellement = lavkaPage.itemsProduct();
-        System.out.println(ellement.size());
-        System.out.println(ellement.get(5).getText());
+        info("ElementSize: " + ellement.size());
+        info("IndividualElementText: " + ellement.get(5).getText());
         Assert.assertTrue(ellement.get(5).getText().contains("126"));
     }
 
@@ -94,12 +91,11 @@ public class LavkaPageTest extends DriverLavkaPageSettings {
         lavkaPage.setUtvar();
         lavkaPage.fieldChetki();
         List<WebElement> ellements = lavkaPage.itemsProduct();
-        Set<String> ellementsText = ellements.stream().map(t -> t.getText())
-                .collect(Collectors.toCollection(TreeSet::new));
-        ellementsText.forEach(System.out::println);
+        Set<String> ellementsText = lavkaPage.elementUniqueList(ellements);
+        info("EllementsTextList: " + ellementsText);
         if (ellements.size() == 11){
-            System.out.println("EllementTrue");
-        } else System.out.println("Non");
+            warn("ElementTrue");
+        } else warn("NoElement");
         assertThat(ellementsText, hasItems(containsString("Браслет"),
                 containsString("Четки")));
     }

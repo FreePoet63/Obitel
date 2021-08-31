@@ -6,8 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
 
-import static page.dafault.MethodsToDefault.*;
+import static page.dafault.MethodsToDefault.waitToClicable;
+import static page.dafault.MethodsToDefault.waitToVisibility;
+import static page.logger.Log.info;
 
 public class LavkaPage  {
 
@@ -42,7 +47,7 @@ public class LavkaPage  {
     }
 
     public static void formatOption(String name) {
-        System.out.println(driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).getText());
+        info(driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).getText());
         driver.findElement(By.xpath(String.format("//span[contains(text(), '%s')]", name))).click();
     }
 
@@ -88,5 +93,18 @@ public class LavkaPage  {
 
     public List<WebElement> stringListMenu() {
        return driver.findElements(getStringMenu);
+    }
+
+    public List<String> elementMenuList(List<WebElement> list) {
+        return list.stream().map(s -> s.getText()).collect(Collectors.toList());
+    }
+
+    public List<String> elementFilter(List<WebElement> listFilter, String value) {
+        return listFilter.stream().map(el -> el.getText()).filter(ol -> ol.contains(value))
+                .collect(Collectors.toList());
+    }
+
+    public Set<String> elementUniqueList(List<WebElement> listUnique) {
+        return listUnique.stream().map(t -> t.getText()).collect(Collectors.toCollection(TreeSet::new));
     }
 }

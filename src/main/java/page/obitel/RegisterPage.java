@@ -60,7 +60,9 @@ public class RegisterPage {
      }
 
      public String errorLastNameSet() {
-         return driver.findElement(setErrorLastName).getText();
+         WebElement errorLastName =  driver.findElement(setErrorLastName);
+         waitToVisibility(driver, 7, errorLastName);
+         return errorLastName.getText();
      }
 
      public String errorMailSet() {
@@ -78,7 +80,7 @@ public class RegisterPage {
      }
 
      public RegisterPage waitButton() {
-        waitTimeoutFluent(driver, 15, 7, setButton);
+        waitTimeoutFluent(driver, 15, 9, setButton);
         WebElement ol = driver.findElement(setButton);
         ol.click();
         return this;
